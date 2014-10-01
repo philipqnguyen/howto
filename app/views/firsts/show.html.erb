@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+<h3><%= @first.body %></h3>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% n = 1 %>
+    <% @seconds.each do |second| %>
+      <tr>
+        <td><%= n %></td>
+        <td><%= second.body %></td>
+        <td><%= link_to 'Show', first_second_path(@first, second) %></td>
+        <td><%= link_to 'Edit', edit_first_second_path(@first, second) %></td>
+        <td><%= link_to 'Destroy', first_second_path(@first, second), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <% n += 1 %>
+    <% end %>
+  </tbody>
+</table>
+<div>
+  <%= link_to 'New Task', new_first_second_path(@first) %> |
+  <%= link_to 'Back', firsts_path %>
+</div>
